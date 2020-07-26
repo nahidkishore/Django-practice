@@ -1,20 +1,32 @@
 <!DOCTYPE html>
-
 {% load static %}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HomePage of First app</title>
   <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+  <title>Musician List</title>
 </head>
 <body>
-  <h1>This is Homepage of First app</h1>
-  <h2>I am being from views.py of first app</h2>
+  <h1>{{text_1 }}</h1>
 
-  {{text_1}} <br>
+  <table border="1">
+    <tr>
+      <th>First Name</th>
+      <th>last Name</th>
+      <th>Instrument</th>
+    </tr>
+    {% for row in musician %}
+    <tr>
+      <td>{{ row.first_name }} </td>
+      <td>{{ row.last_name }} </td>
+      <td>{{ row.instrument }} </td>
+    </tr>
 
-  <img src="{% static "images/image.png" %}">
+
+    {% endfor %}
+    
+  </table>
   
 </body>
 </html>
