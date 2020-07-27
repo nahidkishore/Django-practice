@@ -13,5 +13,11 @@ def index (request):
   return render (request, 'first_app/index.html', context=diction)
 
 
+def form (request):
+  diction={ }
+  return render(request, 'first_app/form.html', context=diction)
+  
+
+
 
 
