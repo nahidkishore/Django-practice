@@ -20,30 +20,13 @@ def form (request):
   
   if request.method == 'POST':
     new_form=forms.user_form(request.POST)
+    diction.update({'test_form': new_form})
+    
     
     
     if new_form.is_valid():
-      user_name = new_form.cleaned_data['user_name']
-      user_email = new_form.cleaned_data['user_email']
-      user_dob = new_form.cleaned_data['user_dob']
-      boolean_field = new_form.cleaned_data['boolean_field']
-      char_field = new_form.cleaned_data['char_field']
-      choice_field=new_form.cleaned_data['choice_field']
-      radio_field=new_form.cleaned_data['radio_field']
+      diction.update({'field':'Fields Match !!'})
       
-      
-      
-      diction.update({'user_name': user_name})
-      diction.update({'user_email': user_email})
-      diction.update({'user_dob': user_dob})
-      diction.update({'boolean_field': boolean_field})
-      diction.update({'char_field': char_field})
-      diction.update({'choice_field': choice_field})
-      diction.update({'radio_field': radio_field})
-     
-      diction.update({'field': new_form.cleaned_data['field']})
-      
-    
       diction.update({'form_submitted':'Yes'})
   
   
