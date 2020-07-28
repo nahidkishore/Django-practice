@@ -15,21 +15,19 @@ def index (request):
 
 
 def form (request):
-  new_form= forms.user_form()
-  diction={ 'test_form': new_form, 'heading1': 'this form is created using Django library'}
+  new_form= forms.MusicianForm()
   
   if request.method == 'POST':
-    new_form=forms.user_form(request.POST)
-    diction.update({'test_form': new_form})
-    
+    new_form=forms.MusicianForm(request.POST)
     
     
     if new_form.is_valid():
-      diction.update({'field':'Fields Match !!'})
-      
-      diction.update({'form_submitted':'Yes'})
+      new_form.save(commit=True)
+      return index(request)
+    
+    
   
-  
+  diction ={'test_form': new_form, 'heading_1':'Add new Musician'}
   return render(request, 'first_app/form.html', context=diction)
   
 

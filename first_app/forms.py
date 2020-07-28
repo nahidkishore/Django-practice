@@ -1,25 +1,18 @@
 from django import forms
 from django.core import validators
+from first_app import models
 
 
 
-
-class user_form(forms.Form):
-  user_email= forms.EmailField()
-  user_vmail= forms.EmailField()
+class  MusicianForm (forms.ModelForm):
   
-  
-  
-  
-  
-  
-  def clean(self):
-    all_cleaned_data = super().clean()
+  class Meta:
+    model = models.Musician
+    fields = "__all__"
     
-    user_email = all_cleaned_data['user_email']
-    user_vmail =all_cleaned_data ['user_vmail']
+    # jodi specific kono kicho bad dite chai, tahole  exclude use korbo.....    exclude =['first_name]
     
-    
-    if user_email != user_vmail:
-      raise forms.ValidationError(" Fields donot Match !!")
-  
+    # r jodi specific koyeta form rakhte chai, tahole fields use korbo....    fields= (' first_name', 'last_name')
+
+
+
