@@ -1,33 +1,7 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
-  <title>Musician List</title>
-</head>
-<body>
-  <h1>{{text_1 }}</h1>
-  <a href="{% url 'first_app:form' %}">Add New</a>
+{% extends "first_app/base.html" %}
 
-  <table border="1">
-    <tr>
-      <th>First Name</th>
-      <th>last Name</th>
-      <th>Instrument</th>
-    </tr>
-    {% for row in musician %}
-    <tr>
-      <td>{{ row.first_name }} </td>
-      <td>{{ row.last_name }} </td>
-      <td>{{ row.instrument }} </td>
-    </tr>
-
-
-    {% endfor %}
-    
-  </table>
+{% block body_block %}
+<h1>I am index page</h1>
   
-</body>
-</html>
+{% endblock %}
