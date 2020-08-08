@@ -27,7 +27,10 @@ class Album(models.Model):
     )
     
     
+    
+    
     num_stars = models.IntegerField(choices=rating)
+    
     
     def __str__(self):
         return self.name + "rating: " + str(self.num_stars)
