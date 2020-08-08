@@ -9,7 +9,7 @@ from first_app import forms
 
 def index (request):
   # SELECT * FROM Musician ORDER BY first_name
-  diction ={'simple_text': Album.objects.get(pk=2),}
+  diction ={'simple_text': "sample text",}
   return render (request, 'first_app/index.html', context=diction)
 
 

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 {% extends "first_app/base.html" %}
+{% load my_filters %}
 
 {% block body_block %}
-<h2>{{ simple_text.release_date|date:"D, d M Y" }}</h2>
+<h2>{{ simple_text| custom_filter:" New Addition" }}</h2>
 
   
 {% endblock %}
