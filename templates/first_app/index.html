@@ -1,5 +1,17 @@
 {% extends "first_app/base.html" %}
 {% block body_block %}
-<h2>Index page</h2>
+<h2>List of Musician:</h2>
+<ul>
+  {% if musician_list %}
+  {% for musician in musician_list %}
+  <li>{{ musician.first_name }} {{ musician.last_name }}</li>
+
+  {% endfor %}
+
+  {% else %}
+  <h3>There is no Musician List</h3>
+  {% endif %}
+
+</ul>
   
 {% endblock  %}
