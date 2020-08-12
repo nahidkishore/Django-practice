@@ -83,6 +83,19 @@ def edit_album(request, album_id):
       diction.update({'success_text':'successfully updated!'})
       
   diction.update({'edit_form':form})
+  diction.update({'album_id':album_id})
   return render(request, 'first_app/edit_album.html', context= diction)
+
+
+def delete_album(request, album_id):
+    album = Album.objects.get(pk=album_id).delete()
+    diction = {'delete_success':'Album Deleted Successfully!'}
+    return render(request, 'first_app/delete.html', context=diction)
+  
+  
+def delete_musician(request,artist_id):
+  artist=Musician.objects.get(pk=artist_id).delete()
+  diction={'delete_success':'Musician Deleted Successfully!'}
+  return render(request, 'first_app/delete.html', context=diction)  
 
 
